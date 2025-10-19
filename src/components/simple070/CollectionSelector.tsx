@@ -30,7 +30,7 @@ const CollectionSelector = () => {
           className="flex justify-center gap-16 mt-20"
         >
           <Link 
-            to="/women" 
+            to="/products" 
             className="group relative text-2xl md:text-3xl font-display tracking-wide text-osegonte-black hover:opacity-60 transition-opacity"
           >
             FOR HER
@@ -38,7 +38,7 @@ const CollectionSelector = () => {
           </Link>
 
           <Link 
-            to="/men" 
+            to="/products" 
             className="group relative text-2xl md:text-3xl font-display tracking-wide text-osegonte-black hover:opacity-60 transition-opacity"
           >
             FOR HIM

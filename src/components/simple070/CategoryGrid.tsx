@@ -4,19 +4,23 @@ import { Link } from 'react-router-dom'
 const categories = [
   {
     title: "Shoes",
-    link: "/shoes"
+    slug: "shoes",
+    link: "/products?category=shoes"
   },
   {
     title: "Bags",
-    link: "/bags"
+    slug: "bags",
+    link: "/products?category=bags"
   },
   {
     title: "Jackets",
-    link: "/jackets"
+    slug: "jackets",
+    link: "/products?category=jackets"
   },
   {
     title: "Accessories",
-    link: "/accessories"
+    slug: "accessories",
+    link: "/products?category=accessories"
   }
 ]
 
@@ -39,7 +43,7 @@ const CategoryGrid = () => {
           </p>
         </motion.div>
 
-        {/* 4-Column Grid with Placeholders */}
+        {/* 4-Column Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {categories.map((category, index) => (
             <motion.div
@@ -54,7 +58,7 @@ const CategoryGrid = () => {
                 className="group block"
               >
                 {/* Product Image Placeholder */}
-                <div className="relative overflow-hidden bg-gray-200 aspect-square mb-4 flex items-center justify-center">
+                <div className="relative overflow-hidden bg-gray-200 aspect-square mb-4 flex items-center justify-center rounded-lg">
                   <span className="text-gray-400 text-sm font-body">{category.title}</span>
                 </div>
                 
@@ -66,6 +70,22 @@ const CategoryGrid = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* View All Products Link */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+          className="text-center mt-12"
+        >
+          <Link 
+            to="/products"
+            className="inline-block bg-osegonte-black text-white px-8 py-4 text-sm tracking-wider hover:bg-osegonte-black/80 transition-colors rounded-lg"
+          >
+            VIEW ALL PRODUCTS
+          </Link>
+        </motion.div>
       </div>
     </section>
   )

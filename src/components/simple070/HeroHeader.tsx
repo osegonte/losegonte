@@ -39,14 +39,14 @@ const HeroHeader = () => {
           className="flex gap-8 mt-12"
         >
           <Link 
-            to="/women" 
+            to="/products" 
             className="text-white text-lg tracking-wider hover:opacity-60 transition-opacity font-light"
           >
             WOMEN
           </Link>
           <span className="text-white text-lg">|</span>
           <Link 
-            to="/men" 
+            to="/products" 
             className="text-white text-lg tracking-wider hover:opacity-60 transition-opacity font-light"
           >
             MEN

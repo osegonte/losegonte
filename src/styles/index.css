@@ -14,16 +14,48 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
   body {
     font-family: var(--font-family-body);
     color: var(--color-osegonte-black);
-    -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family-display);
+  }
+
+  /* Smooth transitions */
+  button, a {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  /* Focus styles */
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid var(--color-osegonte-black);
+    outline-offset: 2px;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
   }
 }
 
@@ -41,5 +73,11 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  /* Text selection */
+  ::selection {
+    background-color: var(--color-osegonte-black);
+    color: white;
   }
 }
