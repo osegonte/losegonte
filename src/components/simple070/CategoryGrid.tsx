@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom'
 
 const categories = [
   {
-    title: "Women's Bags",
-    link: "/women/bags"
+    title: "Shoes",
+    link: "/shoes"
   },
   {
-    title: "Men's Boots",
-    link: "/men/boots"
+    title: "Bags",
+    link: "/bags"
   },
   {
-    title: "Leather Jackets",
+    title: "Jackets",
     link: "/jackets"
   },
   {
@@ -39,16 +39,6 @@ const CategoryGrid = () => {
           </p>
         </motion.div>
 
-        {/* Women / Men Tabs */}
-        <div className="flex justify-center gap-8 mb-16 border-b border-gray-200 pb-4">
-          <button className="text-osegonte-black font-body text-sm tracking-wider border-b-2 border-osegonte-black pb-2">
-            Women
-          </button>
-          <button className="text-osegonte-black/50 font-body text-sm tracking-wider hover:text-osegonte-black transition-colors pb-2">
-            Men
-          </button>
-        </div>
-
         {/* 4-Column Grid with Placeholders */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {categories.map((category, index) => (
@@ -65,7 +55,7 @@ const CategoryGrid = () => {
               >
                 {/* Product Image Placeholder */}
                 <div className="relative overflow-hidden bg-gray-200 aspect-square mb-4 flex items-center justify-center">
-                  <span className="text-gray-400 text-sm font-body">Image</span>
+                  <span className="text-gray-400 text-sm font-body">{category.title}</span>
                 </div>
                 
                 {/* Category Label */}

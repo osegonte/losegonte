@@ -20,8 +20,8 @@ const Header = () => {
     >
       <div className="max-w-[1920px] mx-auto px-8 py-6">
         <div className="flex items-center justify-between">
-          {/* Left: Contact Link */}
-          <div className="flex-1">
+          {/* Left: Contact Link + Admin Link */}
+          <div className="flex-1 flex gap-6">
             <Link 
               to="/contact" 
               className={`text-sm tracking-wider hover:opacity-60 transition-opacity ${
@@ -29,6 +29,14 @@ const Header = () => {
               }`}
             >
               + contact
+            </Link>
+            <Link 
+              to="/admin" 
+              className={`text-sm tracking-wider hover:opacity-60 transition-opacity ${
+                isScrolled ? 'text-black' : 'text-white'
+              }`}
+            >
+              admin
             </Link>
           </div>
 

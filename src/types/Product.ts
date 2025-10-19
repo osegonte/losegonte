@@ -1,4 +1,4 @@
-export interface Product {
+export type Product = {
   id: string
   name: string
   category: 'shoes' | 'bags' | 'jackets' | 'accessories'
@@ -13,8 +13,9 @@ export interface Product {
   updatedAt: Date
 }
 
-export interface LeatherOption {
+export type LeatherOption = {
   id: string
   name: string
   priceAdjustment: number
+}t: number
 }
