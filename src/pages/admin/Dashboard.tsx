@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { supabase } from '../../lib/supabase'
-import { Package, FolderTree, Palette, Ruler, Plus } from 'lucide-react'
+import { Package, FolderTree, Palette, Plus } from 'lucide-react'
 
 const Dashboard = () => {
   const [stats, setStats] = useState({

@@ -86,12 +86,12 @@ const Cart = () => {
     setShowToast(true)
   }
 
-  const calculateSubtotal = () => {
+  const calculateSubtotal = (): number => {
     return cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0)
   }
-
+  
   const subtotal = calculateSubtotal()
-  const shipping = subtotal > 0 ? 0 : 0 // Free shipping
+  const shipping: number = subtotal > 0 ? 0 : 0 // Free shipping
   const tax = subtotal * 0.19 // 19% VAT (adjust based on your region)
   const total = subtotal + shipping + tax
 

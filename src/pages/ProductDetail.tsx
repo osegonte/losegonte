@@ -117,35 +117,58 @@ const ProductDetail = () => {
           .eq('id', productData.category_id)
           .single()
         
-        setCategory(categoryData)
+        if (categoryData) {
+          setCategory(categoryData)
+        }
       }
 
       // Fetch available leather types
       const { data: leathersData } = await supabase
         .from('product_leather_types')
-        .select('leather_type_id, leather_types(id, name, description)')
+        .select('leather_type_id, leather_types!inner(id, name, description)')
         .eq('product_id', productData.id)
 
-      const leathers = leathersData?.map(item => item.leather_types).filter(Boolean) || []
-      setAvailableLeathers(leathers as LeatherType[])
+      if (leathersData && leathersData.length > 0) {
+        const leathers: LeatherType[] = []
+        leathersData.forEach((item: any) => {
+          if (item.leather_types) {
+            leathers.push(item.leather_types as LeatherType)
+          }
+        })
+        setAvailableLeathers(leathers)
+      }
 
       // Fetch available colors
       const { data: colorsData } = await supabase
         .from('product_colors')
-        .select('color_id, colors(id, name, hex)')
+        .select('color_id, colors!inner(id, name, hex)')
         .eq('product_id', productData.id)
 
-      const colors = colorsData?.map(item => item.colors).filter(Boolean) || []
-      setAvailableColors(colors as Color[])
+      if (colorsData && colorsData.length > 0) {
+        const colors: Color[] = []
+        colorsData.forEach((item: any) => {
+          if (item.colors) {
+            colors.push(item.colors as Color)
+          }
+        })
+        setAvailableColors(colors)
+      }
 
       // Fetch available sizes
       const { data: sizesData } = await supabase
         .from('product_sizes')
-        .select('size_id, sizes(id, value, system)')
+        .select('size_id, sizes!inner(id, value, system)')
         .eq('product_id', productData.id)
 
-      const sizes = sizesData?.map(item => item.sizes).filter(Boolean) || []
-      setAvailableSizes(sizes as Size[])
+      if (sizesData && sizesData.length > 0) {
+        const sizes: Size[] = []
+        sizesData.forEach((item: any) => {
+          if (item.sizes) {
+            sizes.push(item.sizes as Size)
+          }
+        })
+        setAvailableSizes(sizes)
+      }
 
     } catch (error) {
       console.error('Error fetching product:', error)
