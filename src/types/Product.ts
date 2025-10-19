@@ -17,5 +17,4 @@ export type LeatherOption = {
   id: string
   name: string
   priceAdjustment: number
-}t: number
 }
